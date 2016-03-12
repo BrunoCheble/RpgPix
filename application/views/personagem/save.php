@@ -57,7 +57,7 @@
 
 		<div class="col-md-12">
 			<button class="btn btn-success btn-block">SALVAR PERSONAGEM</button>
-			<a class="btn btn-default btn-block" href="<?php echo base_url(); ?>personagem/index">CANCELAR E VOLTAR</a>
+			<a class="btn btn-default btn-block" href="<?php echo base_url(); ?>site/index">CANCELAR E VOLTAR</a>
 		</div>
 
 	</div>

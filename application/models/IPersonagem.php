@@ -26,7 +26,7 @@ class IPersonagem extends CI_Model
 	public function getRaca() { return $this->id; }
 
 	public function setVida($vida) { $this->vida = $vida; }
-	public function getViva() { return $this->vida; }
+	public function getVida() { return $this->vida; }
 
 	public function setArma($arma) { $this->arma = $arma; }
 	public function getArma() { return $this->arma; }

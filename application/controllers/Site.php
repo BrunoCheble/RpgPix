@@ -17,8 +17,19 @@ class Site extends CI_Controller {
 
 	public function combate()
 	{
-		$this->layouts->set_title('Você esta preparado para o combate?');
-		$this->layouts->view('combate');
+		
+
+		$ipersonagem = $this->personagem->find(array('raca'=>1));
+		$data['humano'] = !empty($ipersonagem) ? $ipersonagem[0] : '';
+
+		$ipersonagem = $this->personagem->find(array('raca'=>2));
+		$data['orc'] = !empty($ipersonagem) ? $ipersonagem[0] : '';
+
+		$this->layouts->set_title('Arena vazia');
+
+		$view = empty($data['humano']) || empty($data['orc']) ? 'paz' : 'combate';
+
+		$this->layouts->view($view,$data);
 	}
 
 	public function cadastrar()

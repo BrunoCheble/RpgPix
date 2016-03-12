@@ -45,10 +45,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo base_url(); ?>personagem/combate">Combate</a>
+                        <a href="<?php echo base_url(); ?>site/combate">Combate</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo base_url(); ?>personagem">Personagens</a>
+                        <a href="<?php echo base_url(); ?>site/index">Personagens</a>
                     </li>
                 </ul>
             </div>
@@ -61,7 +61,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-text">
-
                         <span class="name"><?php echo $layout_title; ?></span>
                     </div>
                 </div>
