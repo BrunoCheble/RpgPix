@@ -3,9 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Personagem extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('layouts');
+	}
+
 	public function index()
 	{
-		$this->load->view('personagem/index');
+		$this->layouts->set_title('Personagens');
+		$this->layouts->view('personagem/index');
 	}
 
 	public function cadastrar()
@@ -20,6 +26,7 @@ class Personagem extends CI_Controller {
 
 	public function deletar()
 	{
+		$this->layouts->set_title('Personagens');
 		$this->load->view('personagem/index',array('deletado'=>true));
 	}
 
