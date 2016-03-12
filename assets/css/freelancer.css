@@ -457,3 +457,12 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+.progress .progress-bar{
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.progress{height: 20px;}
+
+.card{background: #CFD9DB; padding: 1em;}
+.card_orc{background: #78B854;}
