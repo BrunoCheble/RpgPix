@@ -39,7 +39,7 @@ class Combate extends CI_Controller {
 		$total_dano  = $vida - $total_vida;
 
 		echo json_encode(array(
-			'vida' => $total_vida,
+			'vida' => $total_vida > 0 ? $total_vida : 0,
 			'dano' => $total_dano
 		));
 	}

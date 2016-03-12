@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div id="humano" data-id="<?= $humano->getId(); ?>" style="opacity: 1" class="col-md-4">
 				
 				<div class="card">
-					<label><?= $humano->getNome(); ?></label>
+					<label class="nome"><?= $humano->getNome(); ?></label>
 					<a href="#" class="thumbnail">
 				      	<img src="<?php echo base_url(); ?>assets/img/humano.png" alt="...">
 				    </a>
@@ -29,23 +29,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  <li class="list-group-item">Arma: <b class="arma"><?= $humano->getArma(); ?></b></li>
 					  <li class="list-group-item">Dano da arma: <b class="dano_arma"><?= $humano->getDanoArma(); ?></b></li>
 					  <li class="list-group-item">Dado: <b class="dado">1d<?= $humano->getDado(); ?></b></li>
-					</ul>				
+					</ul>
 			    </div>
 
 			</div>
 
 			<div class="col-md-4">
-				<img id="combate" src="<?php echo base_url(); ?>assets/img/combate.jpg" data-ataque="" data-defesa="" width="100%">
-				<br/>
-			    <button id="decidir_atacante" class="btn btn-block btn-success">DECIDIR ATACANTE</button>
-			    <button id="atacar" style="display: none" class="btn btn-block  btn-primary">ATACAR</button>
-			    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>
+				<h3 id="vencedor" style="text-align: center; display: none;"></h3>
+				<div id="batalha">
+					<img id="combate" src="<?php echo base_url(); ?>assets/img/combate.jpg" data-ataque="" data-defesa="" width="100%">
+					<br/>
+				    <button id="decidir_atacante" class="btn btn-block btn-success">DECIDIR ATACANTE</button>
+				    <button id="atacar" style="display: none" class="btn btn-block  btn-primary">ATACAR</button>
+				    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>
+				    <br/>
+				    <label>Log da batalha</label>
+				    <br/>
+			    </div>
+			    <div id="log" style="height: 150px; overflow-y: auto;">
+			    	<ul class="list-group"></ul>
+			    </div>
 			</div>
 
 			<div id="orc" data-id="<?= $orc->getId(); ?>" class="col-md-4">
 
 				<div class="card card_orc">
-					<label><?= $orc->getNome(); ?></label>
+					<label class="nome"><?= $orc->getNome(); ?></label>
 					<a href="#" class="thumbnail">
 				      	<img src="<?php echo base_url(); ?>assets/img/orc.png" alt="...">
 				    </a>

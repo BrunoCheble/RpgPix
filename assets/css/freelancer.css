@@ -466,4 +466,4 @@ footer .footer-below {
 
 .card{background: #CFD9DB; padding: 1em; opacity: .3;}
 .card_orc{background: #78B854;}
-.ativo .card{opacity: 1;}
+.ativo .card, .vencedor .card{opacity: 1;}

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$('#decidir_atacante').click(function(){
 
 		$.ajax({
@@ -13,6 +14,8 @@ $(document).ready(function(){
 						$('.ativo').removeClass('ativo');
 						$('#combate').attr('data-ataque','');
 						$('#combate').attr('data-defesa','');
+
+						gerarLog('Humano: '+humano+' | Orc: '+orc);
 
 						if(humano == orc)
 							$('#decidir_atacante').click();
@@ -36,7 +39,8 @@ $(document).ready(function(){
 		$.ajax({
 			url: '../combate/atacar/'+$atacante.attr('data-id'),
 			success: function(ataque){
-				alert('Pontos de ataque: '+ataque);
+				gerarLog('Pts. de Ataque: '+ataque);
+
 				$('#combate').attr('data-ataque',ataque);
 
 				$('#orc,#humano').toggleClass('ativo');
@@ -55,13 +59,14 @@ $(document).ready(function(){
 			url: '../combate/atacar/'+$defensor.attr('data-id'),
 			success: function(defesa){
 
-				alert('Pontos de defesa: '+defesa);
 				$('#combate').attr('data-defesa',defesa);
 	
 				if(defesa >= parseInt($('#combate').attr('data-ataque')))
-					alert('Esquivou');
-				else
+					gerarLog('Pts. de Defesa: '+defesa+' (desviou)');
+				else{
+					gerarLog('Pts. de Defesa: '+defesa);
 					calculaDano();
+				}
 
 				$('.ativo').removeClass('ativo');
 				$('#defesa').hide();
@@ -91,12 +96,24 @@ $(document).ready(function(){
 			{
 				res = $.parseJSON(e);
 
-				alert('Dano: '+res['dano']);
-				alert('Restante de vida: '+res['vida']);
+				gerarLog('Pts. de Dano: '+res['dano']+' | Pts. de vida: '+res['vida']);
 
 				calcularProporcao(res['vida']);
+
+				if(res['vida'] < 1)
+					vencedor();
 			}
 		});
+	}
+
+	var vencedor = function()
+	{
+		$('#orc,#humano').toggleClass('ativo');
+		$('.ativo').addClass('vencedor');
+		$('#batalha').hide();
+		$('#log').css('height','auto');
+		$('#vencedor').show().text($('.vencedor .nome').text()+" VENCEU!");
+		
 	}
 
 	var calcularProporcao = function(vida_atual)
@@ -110,5 +127,9 @@ $(document).ready(function(){
 		$defensor.find('.progress-bar').css('width',vida_atual_perc+'%');
 	}
 
+	var gerarLog = function(text)
+	{
+		$('#log ul').prepend('<li class="list-group-item">'+text+'</li>');
+	}
 
 });
