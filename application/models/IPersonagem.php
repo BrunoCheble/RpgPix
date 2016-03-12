@@ -46,7 +46,7 @@ class IPersonagem extends CI_Model
 	public function setAgilidade($agilidade) { $this->agilidade = $agilidade; }
 	public function getAgilidade() { return $this->agilidade; }
 
-	public function calculaDano($vida) { return $this->jogarDado($this->dado) + $this->agilidade + $this->forca - $vida;}
+	public function calculaDano($vida) { return $vida - ($this->jogarDado($this->dado) + $this->agilidade + $this->forca);}
 
 	public function calculaDefesa() { return $this->jogarDado(20) + $this->agilidade + $this->defesa; }
 	public function calculaAtaque() { return $this->jogarDado(20) + $this->agilidade + $this->dano_arma; }

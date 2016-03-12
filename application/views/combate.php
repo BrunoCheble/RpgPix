@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			    	<div class="progress">
 					  	<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-					    	<span><?= $humano->getVida(); ?></span>
+					    	<span data-vida="<?= $humano->getVida(); ?>" class="vida"><?= $humano->getVida(); ?></span>
 					  	</div>
 					</div>
 
@@ -35,14 +35,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 
 			<div class="col-md-4">
-				<img src="<?php echo base_url(); ?>assets/img/combate.jpg" width="100%">
+				<img id="combate" src="<?php echo base_url(); ?>assets/img/combate.jpg" data-ataque="" data-defesa="" width="100%">
 				<br/>
 			    <button id="decidir_atacante" class="btn btn-block btn-success">DECIDIR ATACANTE</button>
 			    <button id="atacar" style="display: none" class="btn btn-block  btn-primary">ATACAR</button>
-			    <button id="defender" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>
+			    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>
 			</div>
 
-			<div id="orc" data-id="<?= $orc->getId(); ?>" class="col-md-4 ativo">
+			<div id="orc" data-id="<?= $orc->getId(); ?>" class="col-md-4">
 
 				<div class="card card_orc">
 					<label><?= $orc->getNome(); ?></label>
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			    	<div class="progress">
 					  	<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-					    	<span><?= $orc->getVida(); ?></span>
+					    	<span data-vida="<?= $orc->getVida(); ?>" class="vida"><?= $orc->getVida(); ?></span>
 					  	</div>
 					</div>
 

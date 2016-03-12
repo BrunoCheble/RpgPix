@@ -18,7 +18,6 @@ class Site extends CI_Controller {
 	public function combate()
 	{
 		
-
 		$ipersonagem = $this->personagem->find(array('raca'=>1));
 		$data['humano'] = !empty($ipersonagem) ? $ipersonagem[0] : '';
 
@@ -28,6 +27,8 @@ class Site extends CI_Controller {
 		$this->layouts->set_title('Arena vazia');
 
 		$view = empty($data['humano']) || empty($data['orc']) ? 'paz' : 'combate';
+
+		$this->layouts->add_include('assets/js/combate.js');
 
 		$this->layouts->view($view,$data);
 	}

@@ -16,5 +16,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/freelancer.js"></script>
+
+    <?php echo $this->layouts->print_includes(); ?>
 </body>
 </html>

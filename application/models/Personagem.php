@@ -28,6 +28,7 @@ class Personagem extends CI_Model
 		{			
 			$obj = new IPersonagem;
 
+			$obj->setId($result->id);
 			$obj->setNome($result->nome);
 			$obj->setRaca($result->raca);
 			$obj->setVida($result->vida);
