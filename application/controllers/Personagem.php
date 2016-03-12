@@ -16,12 +16,38 @@ class Personagem extends CI_Controller {
 
 	public function cadastrar()
 	{
-		$this->load->view('personagem/save');		
+		$this->layouts->set_title('Cadastrar personagem');
+
+		$data = array(
+			'racas' => array(
+				array('id'=>1,'nome'=>'Humanos'),
+				array('id'=>2,'nome'=>'Orcs')
+		));
+		$this->layouts->view('personagem/save',$data);	
 	}
 
 	public function atualizar($id)
 	{
-		$this->load->view('personagem/save');
+		$this->layouts->set_title('Atualizar personagem');		
+		
+		$data = array(
+			'racas' => array(
+				array('id'=>1,'nome'=>'Humanos'),
+				array('id'=>2,'nome'=>'Orcs'),
+			),
+			'personagem' => array(
+				'nome'=>'Bruno',
+				'forca' => '1',
+				'vida' => '2',
+				'agilidade' => '1',
+				'raca' => '1',
+				'defesa' => '2',
+				'arma' => 'Espada longa',
+				'dano_arma' => '3',
+				'dado' => '6'
+			)
+		);
+		$this->layouts->view('personagem/save',$data);
 	}
 
 	public function deletar()
