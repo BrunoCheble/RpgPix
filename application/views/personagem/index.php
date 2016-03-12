@@ -2,8 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <section>
+    
+    
     <div class="container">
-        <table class="table table-bordered">
+        <a class="btn btn-primary" href="<?php echo base_url(); ?>personagem/cadastrar">Cadastrar personagem</a>
+
+        <table style="margin-top: 2em" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -27,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>6</td>
                     <td>7</td>
                     <td>8</td>
-                    <td><a href="<?php echo base_url(); ?>personagem/update/" class="glyphicon glyphicon-pencil"></a></td>
+                    <td><a href="<?php echo base_url(); ?>personagem/atualizar/3" class="glyphicon glyphicon-pencil"></a></td>
                 </tr>
             </thead>
         </table>

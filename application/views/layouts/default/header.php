@@ -45,10 +45,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index">Combate</a>
+                        <a href="<?php echo base_url(); ?>personagem/combate">Combate</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo base_url(); ?>/personagem">Personagens</a>
+                        <a href="<?php echo base_url(); ?>personagem">Personagens</a>
                     </li>
                 </ul>
             </div>

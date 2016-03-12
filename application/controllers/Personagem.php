@@ -14,6 +14,12 @@ class Personagem extends CI_Controller {
 		$this->layouts->view('personagem/index');
 	}
 
+	public function combate()
+	{
+		$this->layouts->set_title('Você esta preparado para o combate?');
+		$this->layouts->view('combate');
+	}
+
 	public function cadastrar()
 	{
 		$this->layouts->set_title('Cadastrar personagem');
