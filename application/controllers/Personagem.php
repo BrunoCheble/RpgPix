@@ -56,7 +56,7 @@ class Personagem extends CI_Controller {
 		$this->layouts->view('personagem/save',$data);
 	}
 
-	public function deletar()
+	public function deletar($id)
 	{
 		$this->layouts->set_title('Personagens');
 		$this->load->view('personagem/index',array('deletado'=>true));
