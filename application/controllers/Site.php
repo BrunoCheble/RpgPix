@@ -20,10 +20,10 @@ class Site extends CI_Controller {
 	public function combate()
 	{
 		
-		$ipersonagem = $this->personagem->find(array('raca'=>1));
+		$ipersonagem = $this->personagem->find(array('raca'=>1),1,0,'RANDOM');
 		$data['humano'] = !empty($ipersonagem) ? $ipersonagem[0] : '';
 
-		$ipersonagem = $this->personagem->find(array('raca'=>2));
+		$ipersonagem = $this->personagem->find(array('raca'=>2),1,0,'RANDOM');
 		$data['orc'] = !empty($ipersonagem) ? $ipersonagem[0] : '';
 
 		$this->layouts->set_title('Arena vazia');
@@ -77,29 +77,28 @@ class Site extends CI_Controller {
 	{
 		$this->layouts->set_title('Atualizar personagem');		
 		
-		$data = array(
-			'racas' => array(
+
+		$data['racas'] = array(
 				array('id'=>1,'nome'=>'Humanos'),
 				array('id'=>2,'nome'=>'Orcs'),
-			),
-			'personagem' => array(
-				'nome'=>'Bruno',
-				'forca' => '1',
-				'vida' => '2',
-				'agilidade' => '1',
-				'raca' => '1',
-				'defesa' => '2',
-				'arma' => 'Espada longa',
-				'dano_arma' => '3',
-				'dado' => '6'
-			)
-		);
+			);
+		
+		$personagem = new Personagem();
+		$ipersonagem = $this->personagem->find(array('id'=>$id));
+
+		$data['personagem'] = !empty($ipersonagem) ? $ipersonagem[0] : new IPersonagem;
+
 		$this->layouts->view('personagem/save',$data);
 	}
 
 	public function deletar($id)
 	{
 		$this->layouts->set_title('Personagens');
-		$this->load->view('personagem/index',array('deletado'=>true));
+		
+		$personagem = new Personagem();
+		
+		$personagem->delete(array('id'=>$id));
+
+		$this->index();
 	}
 }

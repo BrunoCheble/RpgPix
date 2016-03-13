@@ -1,10 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<section>
     
-    
-    <div class="container">
+    <div style="margin-top: 2em" class="container">
         <a class="btn btn-primary" href="<?php echo base_url(); ?>site/cadastrar">Cadastrar personagem</a>
 
         <table style="margin-top: 2em" class="table table-bordered">
@@ -43,4 +41,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </thead>
         </table>
     </div>
-</section>

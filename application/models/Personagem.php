@@ -28,8 +28,9 @@ class Personagem extends CI_Model
 	}
 
 
-	public function find($criteria = array(),$limit = 100,$offset = 0)
+	public function find($criteria = array(),$limit = 100,$offset = 0,$order_by = '')
 	{
+		$this->db->order_by('id',$order_by);
 		$query = $this->db->get_where($this->table, $criteria, $limit, $offset);
 
 		$objs = array();
@@ -60,6 +61,6 @@ class Personagem extends CI_Model
 
 	public function delete($criteria)
 	{
-		$this->db->delete($this->table, $criteria);
+		return $this->db->delete($this->table, $criteria);
 	}
 }
