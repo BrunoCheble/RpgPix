@@ -35,18 +35,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 
 			<div class="col-md-4">
-				<h3 id="vencedor" style="text-align: center; display: none;"></h3>
-				<div id="batalha">
+				
+				<div style="" id="batalha">
 					<img id="combate" src="<?php echo base_url(); ?>assets/img/combate.jpg" data-ataque="" data-defesa="" width="100%">
 					<br/>
 				    <button id="decidir_atacante" class="btn btn-block btn-success">DECIDIR ATACANTE</button>
 				    <button id="atacar" style="display: none" class="btn btn-block  btn-primary">ATACAR</button>
-				    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>
-				    <br/>
-				    <label>Log da batalha</label>
-				    <br/>
+				    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>				    
 			    </div>
-			    <div id="log" style="height: 150px; overflow-y: auto;"></div>
+			    <div id="box_log">
+					<h3 id="vencedor"></h3>
+			    	<div id="log"></div>
+			    </div>
+
 			</div>
 
 			<div id="orc" data-id="<?= $orc->getId(); ?>" class="col-md-4">
