@@ -15,7 +15,10 @@ $(document).ready(function(){
 						$('#combate').attr('data-ataque','');
 						$('#combate').attr('data-defesa','');
 
-						gerarLog('Humano: '+humano+' | Orc: '+orc);
+						if(humano != orc){
+							$('#log').prepend('<ul class="list-group"></ul>');
+							gerarLog('Humano: '+humano+' | Orc: '+orc);
+						}
 
 						if(humano == orc)
 							$('#decidir_atacante').click();
@@ -80,7 +83,7 @@ $(document).ready(function(){
 		var defensor = $('.ativo');
 		
 		// Como o personagem ativo é o defensor o id do atacante é o oponente
-		
+
 		if($('#orc').hasClass('ativo'))
 			atacante = $('#humano');
 		else
@@ -131,7 +134,7 @@ $(document).ready(function(){
 
 	var gerarLog = function(text)
 	{
-		$('#log ul').prepend('<li class="list-group-item">'+text+'</li>');
+		$('#log ul:first-child').prepend('<li class="list-group-item">'+text+'</li>');
 	}
 
 });

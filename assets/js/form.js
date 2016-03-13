@@ -5,4 +5,17 @@ $(document).ready(function(){
            	return false;
    	});
 
+   	$('form').submit(function(){
+		
+		$('.form-group.has-error').removeClass('has-error');
+
+   		$.each($('form input'),function(index,value){
+   			if($(this).val() == '')
+   				$(this).parents('.form-group').addClass('has-error');
+   		});
+
+   		if($('.has-error').length > 0)
+   			return false;
+   	});
+
 });

@@ -32,10 +32,16 @@ class Personagem extends CI_Model
 			return $this->db->insert($this->table,$data);
 	}
 
-
-	public function find($criteria = array(),$limit = 100,$offset = 0,$order_by = '')
+	public function countRows()
 	{
-		$this->db->order_by('id',$order_by);
+		return $this->db->count_all_results($this->table);
+	}
+
+	public function find($criteria = array(),$limit = 0,$offset = 0,$order_by = '')
+	{
+		if(!empty($order_by))
+			$this->db->order_by('id',$order_by);
+
 		$query = $this->db->get_where($this->table, $criteria, $limit, $offset);
 
 		$objs = array();

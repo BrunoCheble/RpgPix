@@ -46,9 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				    <label>Log da batalha</label>
 				    <br/>
 			    </div>
-			    <div id="log" style="height: 150px; overflow-y: auto;">
-			    	<ul class="list-group"></ul>
-			    </div>
+			    <div id="log" style="height: 150px; overflow-y: auto;"></div>
 			</div>
 
 			<div id="orc" data-id="<?= $orc->getId(); ?>" class="col-md-4">

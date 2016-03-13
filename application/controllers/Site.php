@@ -9,9 +9,11 @@ class Site extends CI_Controller {
 		$this->load->model('personagem');
 	}
 
-	public function index()
+	public function index($pag = 1)
 	{
-		$data['personagens'] = $this->personagem->find();
+		$data['count'] = $this->personagem->countRows();
+		$data['page'] = $pag;
+		$data['personagens'] = $this->personagem->find(array(),1,($pag-1));
 
 		$this->layouts->set_title('Personagens');
 		$this->layouts->view('personagem/index',$data);
@@ -114,7 +116,7 @@ class Site extends CI_Controller {
 		$data['personagem'] = !empty($ipersonagem) ? $ipersonagem[0] : new IPersonagem;
 
 		$this->layouts->add_include('assets/js/form.js');
-		
+
 		$this->layouts->view('personagem/save',$data);
 	}
 

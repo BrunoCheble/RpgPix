@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>Dado</th>
                     <th></th>
                 </tr>
+            </thead>
+            <tbody>
                 <?php
                     foreach ($personagens as $personagem) {
                         
@@ -31,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $html .= '<td>'.$personagem->getVida().'</td>';
                         $html .= '<td>'.$personagem->getArma().'</td>';
                         $html .= '<td>'.$personagem->getDanoArma().'</td>';
+                        $html .= '<td>1d'.$personagem->getDado().'</td>';
                         $html .= '<td><a href="'.base_url().'site/atualizar/'.$personagem->getId().'" class="glyphicon glyphicon-pencil"></a> <a href="'.base_url().'site/deletar/'.$personagem->getId().'" class="glyphicon glyphicon-remove"></a></td>';
 
                         $html .= '</tr>';
@@ -38,6 +41,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         echo $html;
                     }
                 ?>
-            </thead>
+            </tbody>
         </table>
+
+        <nav>
+            <ul class="pagination">
+                <li>
+                  <a href="<?php echo base_url().'site/index/'.($page > 1 ? ($page- 1) : $page); ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+
+                <?php
+                for ($i=1; $i <= $count; $i++) { 
+                    $selected = $page == $i ? 'class="active"' : '';
+                    echo '<li '.$selected.'><a href="'.base_url().'site/index/'.$i.'">'.$i.'</a></li>';
+                }
+                ?>
+                
+                <li>
+                  <a href="<?php echo base_url().'site/index/'.($page < $count ? ($page+1) : $page); ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+
     </div>
