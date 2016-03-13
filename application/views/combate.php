@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div style="" id="batalha">
 					<img id="combate" src="<?php echo base_url(); ?>assets/img/combate.jpg" data-ataque="" data-defesa="" width="100%">
 					<br/>
-				    <button id="decidir_atacante" class="btn btn-block btn-success">DECIDIR ATACANTE</button>
+				    <button id="decidir_atacante" class="btn btn-block btn-success">INICIATIVA</button>
 				    <button id="atacar" style="display: none" class="btn btn-block  btn-primary">ATACAR</button>
 				    <button id="defesa" style="display: none" class="btn btn-block btn-danger">DEFENDER OU ESQUIVAR</button>				    
 			    </div>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 						if(humano == orc)
 							$('#decidir_atacante').click();
-						else if(humano > orc)
+						else if(parseInt(humano) > parseInt(orc))
 							$('#humano').addClass('ativo');
 						else
 							$('#orc').addClass('ativo');
