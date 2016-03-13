@@ -10,8 +10,20 @@ class Personagem extends CI_Model
 		$this->load->model('ipersonagem');
 	}
 
-	public function save($data)
+	public function save($ipersonagem)
 	{
+		$data = array(
+			'nome' 		=> $ipersonagem->getNome(),
+			'raca' 		=> $ipersonagem->getRaca(),
+			'vida' 		=> $ipersonagem->getVida(),
+			'arma' 		=> $ipersonagem->getArma(),
+			'dano_arma' => $ipersonagem->getDanoArma(),
+			'defesa' 	=> $ipersonagem->getDefesa(),
+			'dado' 		=> $ipersonagem->getDado(),
+			'forca' 	=> $ipersonagem->getForca(),
+			'agilidade' => $ipersonagem->getAgilidade(),
+		);
+
 		return $this->db->insert($this->table,$data);
 	}
 

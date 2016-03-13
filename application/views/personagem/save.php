@@ -6,57 +6,57 @@
 		<div class="col-md-4">
 			<div class="form-group">
 			  	<label for="usr">Nome do personagem:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['nome'] : ''; ?>" class="form-control">
+			  	<input name="nome" type="text" value="<?php echo $personagem->getNome(); ?>" class="form-control">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Raça:</label>
-			  	<select class="form-control">
+			  	<select name="raca" class="form-control">
 			  		<?php
 				  		foreach ($racas as $raca) {
-				  			$selected = !empty($personagem) && $personagem['raca'] == $raca['id'] ? 'selected' : '';
+				  			$selected = !empty($personagem) && $personagem->getRaca() == $raca['id'] ? 'selected' : '';
 				  			echo '<option '.$selected.' value="'.$raca['id'].'">'.$raca['nome'].'</option>';
 				  		}
 			  		?>
 			  	</select>
 			</div>
 			<div class="form-group">
-			  	<label for="usr">Força:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['forca'] : ''; ?>" class="form-control numero">
+			  	<label name="forca" for="usr">Força:</label>
+			  	<input type="text" name="forca" value="<?php echo $personagem->getForca(); ?>" class="form-control numero">
 			</div>
 		</div>
 
 		<div class="col-md-4">
 			<div class="form-group">
 			  	<label for="usr">Vida:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['vida'] : ''; ?>" class="form-control numero">
+			  	<input name="vida" type="text" value="<?php echo $personagem->getVida(); ?>" class="form-control numero">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Agilidade:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['agilidade'] : ''; ?>" class="form-control numero">
+			  	<input name="agilidade" type="text" value="<?php echo $personagem->getAgilidade(); ?>" class="form-control numero">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Defesa:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['defesa'] : ''; ?>" class="form-control numero">
+			  	<input name="defesa" type="text" value="<?php echo $personagem->getDefesa(); ?>" class="form-control numero">
 			</div>
 		</div>
 
 		<div class="col-md-4">
 			<div class="form-group">
 			  	<label for="usr">Arma:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['arma'] : ''; ?>" class="form-control numero">
+			  	<input name="arma" type="text" value="<?php echo $personagem->getArma(); ?>" class="form-control numero">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Dano da arma:</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['dano_arma'] : ''; ?>" class="form-control numero">
+			  	<input name="dano_arma" type="text" value="<?php echo $personagem->getDanoArma(); ?>" class="form-control numero">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Dado (qtd. de lados)</label>
-			  	<input type="text" value="<?php echo !empty($personagem) ? $personagem['dado'] : ''; ?>" class="form-control numero">
+			  	<input name="dado" type="text" value="<?php echo $personagem->getDado(); ?>" class="form-control numero">
 			</div>
 		</div>
 
 		<div class="col-md-12">
-			<button class="btn btn-success btn-block">SALVAR PERSONAGEM</button>
+			<button type="submit" class="btn btn-success btn-block">SALVAR PERSONAGEM</button>
 			<a class="btn btn-default btn-block" href="<?php echo base_url(); ?>site/index">CANCELAR E VOLTAR</a>
 		</div>
 

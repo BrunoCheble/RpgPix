@@ -21,18 +21,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>Dado</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>Bruno</td>
-                    <td>Humanos</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td><a href="<?php echo base_url(); ?>site/atualizar/3" class="glyphicon glyphicon-pencil"></a> <a href="<?php echo base_url(); ?>site/deletar/3" class="glyphicon glyphicon-remove"></a></td>
-                </tr>
+                <?php
+                    foreach ($personagens as $personagem) {
+                        
+                        $html = '<tr>';
+                        $html .= '<td>'.$personagem->getNome().'</td>';
+                        $html .= '<td>'.$personagem->getNomeRaca().'</td>';
+                        $html .= '<td>'.$personagem->getDefesa().'</td>';
+                        $html .= '<td>'.$personagem->getForca().'</td>';
+                        $html .= '<td>'.$personagem->getAgilidade().'</td>';
+                        $html .= '<td>'.$personagem->getVida().'</td>';
+                        $html .= '<td>'.$personagem->getArma().'</td>';
+                        $html .= '<td>'.$personagem->getDanoArma().'</td>';
+                        $html .= '<td><a href="'.base_url().'site/atualizar/'.$personagem->getId().'" class="glyphicon glyphicon-pencil"></a> <a href="'.base_url().'site/deletar/'.$personagem->getId().'" class="glyphicon glyphicon-remove"></a></td>';
+
+                        $html .= '</tr>';
+
+                        echo $html;
+                    }
+                ?>
             </thead>
         </table>
     </div>

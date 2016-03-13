@@ -11,8 +11,10 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
+		$data['personagens'] = $this->personagem->find();
+
 		$this->layouts->set_title('Personagens');
-		$this->layouts->view('personagem/index');
+		$this->layouts->view('personagem/index',$data);
 	}
 
 	public function combate()
@@ -37,11 +39,37 @@ class Site extends CI_Controller {
 	{
 		$this->layouts->set_title('Cadastrar personagem');
 
-		$data = array(
-			'racas' => array(
-				array('id'=>1,'nome'=>'Humanos'),
-				array('id'=>2,'nome'=>'Orcs')
-		));
+		$ipersonagem = new IPersonagem;
+
+		if(!empty($_POST)){
+
+			$personagem = new Personagem();
+
+			$ipersonagem->setNome($_POST['nome']);
+			$ipersonagem->setRaca((int)$_POST['raca']);
+			$ipersonagem->setVida((int)$_POST['vida']);
+			$ipersonagem->setArma($_POST['arma']);
+			$ipersonagem->setDanoArma((int)$_POST['dano_arma']);
+			$ipersonagem->setDefesa((int)$_POST['defesa']);
+			$ipersonagem->setDado((int)$_POST['dado']);
+			$ipersonagem->setForca((int)$_POST['forca']);
+			$ipersonagem->setAgilidade((int)$_POST['agilidade']);
+			$ipersonagem->valida();
+			
+			if($ipersonagem->valida()){
+				$return = $personagem->save($ipersonagem);
+				$this->index();
+				return;
+			}
+		}
+		
+		$data['personagem'] = $ipersonagem;
+
+		$data['racas'] = array(
+			array('id'=>1,'nome'=>'Humanos'),
+			array('id'=>2,'nome'=>'Orcs')
+		);
+
 		$this->layouts->view('personagem/save',$data);	
 	}
 
