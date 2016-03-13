@@ -64,8 +64,8 @@ $(document).ready(function(){
 
 				$('#combate').attr('data-defesa',defesa);
 	
-				if(defesa >= parseInt($('#combate').attr('data-ataque')))
-					gerarLog('Pts. de Defesa: '+defesa+' (desviou)');
+				if(parseInt(defesa) >= parseInt($('#combate').attr('data-ataque')))
+					gerarLog('Pts. de Defesa: '+defesa+' (defendeu)');
 				else{
 					gerarLog('Pts. de Defesa: '+defesa);
 					calculaDano();
@@ -105,7 +105,7 @@ $(document).ready(function(){
 
 				calcularProporcao(res['vida']);
 
-				if(res['vida'] < 1)
+				if(parseInt(res['vida']) < 1)
 					vencedor();
 			}
 		});
