@@ -70,6 +70,8 @@ class Site extends CI_Controller {
 			array('id'=>2,'nome'=>'Orcs')
 		);
 
+		$this->layouts->add_include('assets/js/form.js');
+
 		$this->layouts->view('personagem/save',$data);	
 	}
 
@@ -84,10 +86,35 @@ class Site extends CI_Controller {
 			);
 		
 		$personagem = new Personagem();
-		$ipersonagem = $this->personagem->find(array('id'=>$id));
+
+		if(!empty($_POST)){
+			
+			$ipersonagem = new IPersonagem;
+
+			$ipersonagem->setId((int)$id);
+			$ipersonagem->setNome($_POST['nome']);
+			$ipersonagem->setRaca((int)$_POST['raca']);
+			$ipersonagem->setVida((int)$_POST['vida']);
+			$ipersonagem->setArma($_POST['arma']);
+			$ipersonagem->setDanoArma((int)$_POST['dano_arma']);
+			$ipersonagem->setDefesa((int)$_POST['defesa']);
+			$ipersonagem->setDado((int)$_POST['dado']);
+			$ipersonagem->setForca((int)$_POST['forca']);
+			$ipersonagem->setAgilidade((int)$_POST['agilidade']);
+
+			if($ipersonagem->valida()){
+				$return = $personagem->save($ipersonagem);
+				$this->index();
+				return;
+			}
+		}
+		else
+			$ipersonagem = $this->personagem->find(array('id'=>$id));
 
 		$data['personagem'] = !empty($ipersonagem) ? $ipersonagem[0] : new IPersonagem;
 
+		$this->layouts->add_include('assets/js/form.js');
+		
 		$this->layouts->view('personagem/save',$data);
 	}
 

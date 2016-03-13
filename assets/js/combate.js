@@ -79,10 +79,12 @@ $(document).ready(function(){
 	{		
 		var defensor = $('.ativo');
 		
+		// Como o personagem ativo é o defensor o id do atacante é o oponente
+		
 		if($('#orc').hasClass('ativo'))
-			atacante = $('#orc');
-		else
 			atacante = $('#humano');
+		else
+			atacante = $('#orc');
 
 		$.ajax({
 			url: '../combate/calculaDano',

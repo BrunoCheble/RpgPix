@@ -21,10 +21,15 @@ class Personagem extends CI_Model
 			'defesa' 	=> $ipersonagem->getDefesa(),
 			'dado' 		=> $ipersonagem->getDado(),
 			'forca' 	=> $ipersonagem->getForca(),
-			'agilidade' => $ipersonagem->getAgilidade(),
+			'agilidade' => $ipersonagem->getAgilidade()
 		);
 
-		return $this->db->insert($this->table,$data);
+		if(!empty($ipersonagem->getId())){
+			$this->db->where('id', $ipersonagem->getId());
+			return $this->db->update($this->table,$data);
+		}
+		else
+			return $this->db->insert($this->table,$data);
 	}
 
 

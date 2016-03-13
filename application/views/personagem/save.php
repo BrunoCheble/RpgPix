@@ -43,7 +43,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 			  	<label for="usr">Arma:</label>
-			  	<input name="arma" type="text" value="<?php echo $personagem->getArma(); ?>" class="form-control numero">
+			  	<input name="arma" type="text" value="<?php echo $personagem->getArma(); ?>" class="form-control">
 			</div>
 			<div class="form-group">
 			  	<label for="usr">Dano da arma:</label>

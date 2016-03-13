@@ -35,6 +35,7 @@ class Combate extends CI_Controller {
 		extract($_POST);
 
 		$ipersonagem = $this->personagem->find(array('id'=>$id));
+
 		$total_vida  = $ipersonagem[0]->calculaDano($vida);
 		$total_dano  = $vida - $total_vida;
 
